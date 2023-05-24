@@ -5,10 +5,12 @@ import logo from '../assets/logo.png';
 const Header = () => {
     const [menu, setMenu] = useState(false);
     return (
-        <div className='bg-main  py-4'>
+        <div className='bg-main  py-4 px-4'>
             <div className="flex justify-between items-center container mx-auto">
                 <div className="">
-                    <img className='w-32' src={logo} alt="" />
+                    <Link to='/'>
+                        <img className='w-32' src={logo} alt="" />
+                    </Link>
                 </div>
                 <div className="lg:flex gap-5 hidden">
                     <Link className='font-semibold text-white text-xl hover:text-warning'>Home</Link>
