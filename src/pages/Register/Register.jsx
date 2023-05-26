@@ -52,9 +52,9 @@ const Register = () => {
                     })
                     .catch((error) => {
                         setError(error.message)
-                        console.log(error.message)
+                        // console.log(error.message)
                     })
-                console.log(result)
+                // console.log(result)
             })
             .catch(error => {
                 if (error.message === "Firebase: Error (auth/email-already-in-use).") {
@@ -66,7 +66,7 @@ const Register = () => {
             })
 
 
-        console.log(name, email, password, photo)
+        // console.log(name, email, password, photo)
 
     }
 
@@ -75,7 +75,7 @@ const Register = () => {
 
         googleSignIn()
             .then((result) => {
-                console.log(result)
+                // console.log(result)
             })
             .catch(error => {
                 setError(error.message);
@@ -87,7 +87,7 @@ const Register = () => {
 
         githubSignIn()
             .then((result) => {
-                console.log(result)
+                // console.log(result)
             })
             .catch(error => {
                 setError(error.message);

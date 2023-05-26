@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { createUser, editUser, googleSignIn, githubSignIn, } = useContext(AuthContext);
+    const { signInUser, googleSignIn, githubSignIn, } = useContext(AuthContext);
     const handleLogin = (event) => {
         event.preventDefault();
 
@@ -16,56 +16,29 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const photo = form.photo.value;
-
-        // update data
-
-        const updateData = {
-            displayName: name,
-            photoURL: photo
-        }
 
         // validation
-        if (!/(?=.*[A-Z])/.test(password)) {
-            setError('Password At least one uppercase character')
-            return;
-        }
-        else if (!/(?=.*[a-z])/.test(password)) {
-            setError('Password At least one lowercase character')
-            return;
-        }
-        else if (!/(?=.*\d)/.test(password)) {
-            setError('Password At least one digit')
-            return;
-        }
-        else if (password.length < 6) {
-            setError('Password Minimum 6 characters')
-            return;
-        }
+        // if (password.length < 6) {
+        //     setError('Password Minimum 6 characters')
+        //     return;
+        // }
 
-        createUser(email, password)
+        signInUser(email, password)
             .then((result) => {
-                editUser(updateData)
-                    .then(() => {
-                        // console.log('successfully updated')
-                    })
-                    .catch((error) => {
-                        setError(error.message)
-                        console.log(error.message)
-                    })
                 console.log(result)
             })
             .catch(error => {
-                if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-                    setError('This email already used');
+                if (error.message === "Firebase: Error (auth/wrong-password).") {
+                    setError('Wrong Password');
                 }
                 else {
                     setError(error.message);
                 }
+                // console.log(error)
             })
 
 
-        console.log(name, email, password, photo)
+        // console.log(email, password)
 
     }
 
@@ -74,7 +47,7 @@ const Login = () => {
 
         googleSignIn()
             .then((result) => {
-                console.log(result)
+                // console.log(result)
             })
             .catch(error => {
                 setError(error.message);
@@ -86,7 +59,7 @@ const Login = () => {
 
         githubSignIn()
             .then((result) => {
-                console.log(result)
+                // console.log(result)
             })
             .catch(error => {
                 setError(error.message);
@@ -99,7 +72,7 @@ const Login = () => {
                 {
                     error && <p className='text-center text-xl my-4 text-error font-semibold'>{error}</p>
                 }
-                 <form onSubmit={handleLogin} className='mt-10'>
+                <form onSubmit={handleLogin} className='mt-10'>
                     <label className='block text-2xl font-semibold'>Email : </label>
                     <input className='block w-full h-16 text-2xl pl-5 focus:outline-warning my-2 rounded-lg' type="email" name='email' placeholder='Your Email' required />
 
