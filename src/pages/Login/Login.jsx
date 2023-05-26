@@ -29,7 +29,7 @@ const Login = () => {
                     <hr className=' border-black w-full' />
                 </div>
                 <div className='flex flex-col lg:flex-row justify-between gap-5'>
-                    <button className='btn btn-outline hover:btn-primary flex-1 h-20 text-2xl flex items-center gap-2'>
+                    <button className='btn btn-outline hover:btn-info flex-1 h-20 text-2xl flex items-center gap-2'>
                         <FaGoogle className='text-4xl'/>
                         <p>google</p>
                     </button>
