@@ -45,12 +45,14 @@ const Recipes = () => {
             </div>
             <div>
                 <h3 className='w-5/6 lg:w-2/12 border-warning py-3 shadow-lg mx-auto text-center text-5xl my-10 text-warning font-semibold border-b-2 rounded-full uppercase'>Recipes</h3>
+                <div className=''>
                 {
                     recipes.map(recipe => <RecipeCard
                         key={recipe.recipe_id}
                         recipe={recipe}
                     ></RecipeCard>)
                 }
+                </div>
             </div>
         </div>
     );
