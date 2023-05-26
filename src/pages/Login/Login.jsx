@@ -66,7 +66,7 @@ const Login = () => {
             })
     }
     return (
-        <div className='container px-1 lg:mx-auto my-10 lg:w-8/12'>
+        <div className='container px-1 lg:mx-auto my-10 lg:w-5/12'>
             <div className='bg-base-200  rounded-lg px-5 py-10 lg:px-10 lg:py-20'>
                 <h3 className='text-center text-4xl font-semibold'>Please Login</h3>
                 {
