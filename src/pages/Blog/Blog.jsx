@@ -1,9 +1,29 @@
-import React from 'react';
+import jsPDF from 'jspdf';
+import React, { useRef } from 'react';
+import html2canvas from 'html2canvas';
 
 const Blog = () => {
+    const questionRef = useRef();
+
+    const handlePdf = () => {
+        const capture = questionRef.current;
+        html2canvas(capture)
+            .then((canvas) => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('l','mm',[297, 210]);
+                const componentWidth = pdf.internal.pageSize.getWidth();
+                const componentHeight = pdf.internal.pageSize.getHeight();
+                pdf.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+                pdf.save("Questions.pdf");
+            })
+            ;
+    }
     return (
         <div>
-            <div className='container mx-auto my-10'>
+            <div className='flex justify-center mt-5'>
+            <button className='btn btn-warning ' onClick={handlePdf}>Generate PDF</button>
+            </div>
+            <div ref={questionRef} className='container mx-auto my-10'>
                 <h2 className='text-4xl font-semibold text-gray-400 my-7 text-center'>Question and Answer</h2>
                 <div className='grid lg:grid-cols-2 gap-4 text-gray-400 text-start font-medium mx-3'>
                     <div className='p-3 rounded-lg border-2 hover:border-warning transition-colors duration-1000 hover:text-gray-500'>
