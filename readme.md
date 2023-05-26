@@ -22,5 +22,5 @@ This project is used by the following technology:
 
 - React Js
 - Tailwind Css
-- Used Hero Icon
+- Used React Icons
 - React hot toast

@@ -7,6 +7,7 @@ import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import ErrorPage from '../shared/ErrorPage';
 import PrivateRoute from './PrivateRoute';
+import Blog from '../pages/Blog/Blog';
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <h1>hi</h1>
+                element: <Blog></Blog>
             },
             {
                 path: '/recipes/:id',
