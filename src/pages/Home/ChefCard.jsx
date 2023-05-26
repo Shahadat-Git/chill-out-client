@@ -7,7 +7,7 @@ const ChefCard = ({ chef }) => {
     // console.log(chef)
     const { chef_id, chef_name, chef_picture, description, likes, num_of_recipes, recipes, years_of_experience } = chef;
     const chefUrlName = chef_name.split(" ").join("-").toLowerCase() + -+chef_id;
-    console.log(chefUrlName)
+    // console.log(chefUrlName)
     return (
         <div className="flex flex-col lg:flex-row  lg:items-center rounded-xl shadow-lg bg-base-200">
             <img className=' lg:rounded-s-xl rounded-t-xl lg:rounded-t-none h-80 lg:w-2/5 w-full object-center' src={chef_picture} alt="" />

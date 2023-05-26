@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { ChefsContext } from '../../providers/ChefsProvider';
 import { useParams } from 'react-router-dom';
-import spinner from '../../utils/spinner';
 import { GiCampCookingPot, GiNotebook } from 'react-icons/gi';
 import { AiFillLike } from 'react-icons/ai';
+import Spinner from '../../utils/Spinner';
+import RecipeCard from './RecipeCard';
 
 const Recipes = () => {
     const { id } = useParams();
@@ -11,13 +12,13 @@ const Recipes = () => {
     const { chefs } = useContext(ChefsContext);
 
     if (!chefs) {
-        return spinner();
+        return <Spinner></Spinner>
     }
 
     const currentChef = chefs?.find(chef => chef.chef_id === url)
     const { chef_id, chef_name, chef_picture, description, likes, num_of_recipes, recipes, years_of_experience } = currentChef;
 
-    console.log(chef_name)
+    console.log(recipes)
     return (
         <div>
             <div className="hero bg-base-200">
@@ -41,6 +42,15 @@ const Recipes = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h3 className='w-5/6 lg:w-2/12 border-warning py-3 shadow-lg mx-auto text-center text-5xl my-10 text-warning font-semibold border-b-2 rounded-full uppercase'>Recipes</h3>
+                {
+                    recipes.map(recipe => <RecipeCard
+                        key={recipe.recipe_id}
+                        recipe={recipe}
+                    ></RecipeCard>)
+                }
             </div>
         </div>
     );

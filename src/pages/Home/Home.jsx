@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Slider from './Slider';
 import { ChefsContext } from '../../providers/ChefsProvider';
 import ChefCard from './ChefCard';
-import spinner from '../../utils/spinner';
+import Spinner from '../../utils/Spinner';
 
 const Home = () => {
     const { chefs } = useContext(ChefsContext);
@@ -19,7 +19,7 @@ const Home = () => {
                         chefs ? chefs.map(chef => <ChefCard
                             chef={chef}
                             key={chef.chef_id}
-                        ></ChefCard>) : spinner()
+                        ></ChefCard>) : <Spinner></Spinner>
                     }
                 </div>
             </div>
