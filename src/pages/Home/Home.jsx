@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Slider from './Slider';
 import { ChefsContext } from '../../providers/ChefsProvider';
 import ChefCard from './ChefCard';
-import Spinner from '../../utils/Spinner';
+import Spinner from '../../shared/Spinner';
 
 const Home = () => {
     const { chefs } = useContext(ChefsContext);

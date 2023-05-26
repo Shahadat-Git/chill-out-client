@@ -18,7 +18,7 @@ const Header = () => {
 
                 </div>
                 <div>
-                    <button className='hidden lg:block btn btn-warning'>login</button>
+                    <Link to="/login" className='hidden lg:flex btn btn-warning '>login</Link>
                 </div>
                 {/* for phone */}
                 <div className='lg:hidden'>
@@ -35,7 +35,7 @@ const Header = () => {
 
                     </div>
                     <div>
-                        <button className='lg:hidden btn btn-warning'>login</button>
+                        <Link to="/login" className='lg:hidden btn btn-warning'>login</Link>
                     </div>
                 </div>
             }

@@ -3,7 +3,7 @@ import { ChefsContext } from '../../providers/ChefsProvider';
 import { useParams } from 'react-router-dom';
 import { GiCampCookingPot, GiNotebook } from 'react-icons/gi';
 import { AiFillLike } from 'react-icons/ai';
-import Spinner from '../../utils/Spinner';
+import Spinner from '../../shared/Spinner';
 import RecipeCard from './RecipeCard';
 
 const Recipes = () => {
