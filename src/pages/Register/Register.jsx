@@ -2,12 +2,18 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
     const { createUser, editUser, googleSignIn, githubSignIn, } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from.pathname || '/';
+
+
     const handleRegister = (event) => {
         event.preventDefault();
 
@@ -55,6 +61,7 @@ const Register = () => {
                         // console.log(error.message)
                     })
                 // console.log(result)
+                navigate(from,{replace:true});
             })
             .catch(error => {
                 if (error.message === "Firebase: Error (auth/email-already-in-use).") {
@@ -76,6 +83,7 @@ const Register = () => {
         googleSignIn()
             .then((result) => {
                 // console.log(result)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
@@ -88,6 +96,7 @@ const Register = () => {
         githubSignIn()
             .then((result) => {
                 // console.log(result)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
@@ -96,7 +105,7 @@ const Register = () => {
 
 
     return (
-        <div className='container px-1 lg:mx-auto my-10 lg:w-5/12'>
+        <div className='container px-1 mx-auto my-10 lg:w-6/12'>
             <div className='bg-base-200  rounded-lg px-5 py-10 lg:px-10 lg:py-20'>
                 <h3 className='text-center text-4xl font-semibold'>Please Login</h3>
                 {

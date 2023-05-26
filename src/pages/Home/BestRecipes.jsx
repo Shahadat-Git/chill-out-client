@@ -6,7 +6,7 @@ const BestRecipes = ({recipe}) => {
     return (
         <div className='bg-base-200 p-5 rounded-lg shadow-xl'>
             <div>
-                <img className='w-full h-56 rounded-3xl' src={recipe_picture} alt="" />
+                <img className='w-full h-56 rounded-lg' src={recipe_picture} alt="" />
             </div>
            <div className='flex justify-between items-center'>
            <p className='text-xl font-semibold '>{recipe_name}</p>

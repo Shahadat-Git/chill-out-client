@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -8,6 +8,12 @@ import { useContext } from 'react';
 const Login = () => {
     const [error, setError] = useState('');
     const { signInUser, googleSignIn, githubSignIn, } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from.pathname || '/';
+
+
     const handleLogin = (event) => {
         event.preventDefault();
 
@@ -25,11 +31,15 @@ const Login = () => {
 
         signInUser(email, password)
             .then((result) => {
-                console.log(result)
+                // console.log(result)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 if (error.message === "Firebase: Error (auth/wrong-password).") {
                     setError('Wrong Password');
+                }
+                else if (error.message === "Firebase: Error (auth/user-not-found).") {
+                    setError("Email doesn't match");
                 }
                 else {
                     setError(error.message);
@@ -48,6 +58,7 @@ const Login = () => {
         googleSignIn()
             .then((result) => {
                 // console.log(result)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
@@ -60,13 +71,14 @@ const Login = () => {
         githubSignIn()
             .then((result) => {
                 // console.log(result)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
             })
     }
     return (
-        <div className='container px-1 lg:mx-auto my-10 lg:w-5/12'>
+        <div className='container px-1 mx-auto my-10 lg:w-6/12'>
             <div className='bg-base-200  rounded-lg px-5 py-10 lg:px-10 lg:py-20'>
                 <h3 className='text-center text-4xl font-semibold'>Please Login</h3>
                 {
@@ -80,7 +92,7 @@ const Login = () => {
                     <input className='block w-full h-16 text-2xl pl-5 focus:outline-warning my-2 rounded-lg' type="password" name='password' placeholder='Your Password' required />
 
                     <div className='flex justify-between'>
-                        <Link to='/register' className='text-xl text-warning font-semibold underline  block hover:text-yellow-400'>Don't have an account ?</Link>
+                        <Link state={location.state && { from: location.state?.from }} to='/register' className='text-xl text-warning font-semibold underline  block hover:text-yellow-400'>Don't have an account ?</Link>
 
                         <Link className='text-xl text-warning font-semibold underline block hover:text-yellow-400'>Forgot password ?</Link>
                     </div>
