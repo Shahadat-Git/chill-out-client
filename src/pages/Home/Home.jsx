@@ -60,8 +60,8 @@ const Home = () => {
             </div>
 
             {/* bottom section */}
-            <div className="hero h-[60vh]  mb-4 shadow-xl container mx-auto rounded-3xl" style={{ backgroundImage: `url("/banner/btn-banner.jpg")` }}>
-                <div className="hero-overlay bg-opacity-50 rounded-3xl"></div>
+            <div className="hero h-[60vh]  mb-4 shadow-xl container mx-auto rounded-lg" style={{ backgroundImage: `url("/banner/btn-banner.jpg")` }}>
+                <div className="hero-overlay bg-opacity-50 rounded-lg"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-xl">
                         <h1 className="mb-5 font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-slate-50 to-slate-300 w-8/12 mx-auto">Time-Saving Tip for Food Preparation</h1>
