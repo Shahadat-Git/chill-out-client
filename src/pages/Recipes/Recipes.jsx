@@ -18,7 +18,7 @@ const Recipes = () => {
     const currentChef = chefs?.find(chef => chef.chef_id === url)
     const { chef_id, chef_name, chef_picture, description, likes, num_of_recipes, recipes, years_of_experience } = currentChef;
 
-    console.log(recipes)
+    // console.log(recipes)
     return (
         <div>
             <div className="hero bg-base-200">
@@ -44,7 +44,7 @@ const Recipes = () => {
                 </div>
             </div>
             <div>
-                <h3 className='w-5/6 lg:w-2/12 border-warning py-3 shadow-lg mx-auto text-center text-5xl my-10 text-warning font-semibold border-b-2 rounded-full uppercase'>Recipes</h3>
+                <h3 className='w-5/6 lg:w-4/12 border-warning py-3 shadow-lg mx-auto text-center text-5xl my-10 text-warning font-semibold border-b-2 rounded-full uppercase'>Recipes</h3>
                 <div className=''>
                 {
                     recipes.map(recipe => <RecipeCard
