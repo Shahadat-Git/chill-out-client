@@ -15,9 +15,9 @@ const Login = () => {
                     <input className='block w-full h-16 text-2xl pl-5 focus:outline-warning my-2 rounded-lg' type="password" name='password' placeholder='Your Password' required />
 
                     <div className='flex justify-between'>
-                        <Link to='/register' className='text-xl text-warning font-semibold underline  block hover:text-yellow-400'>Don't have an account?</Link>
+                        <Link to='/register' className='text-xl text-warning font-semibold underline  block hover:text-yellow-400'>Don't have an account ?</Link>
 
-                        <Link className='text-xl text-warning font-semibold underline block hover:text-yellow-400'>Forgot password?</Link>
+                        <Link className='text-xl text-warning font-semibold underline block hover:text-yellow-400'>Forgot password ?</Link>
                     </div>
 
                     <input className='btn btn-warning block w-full h-16 text-2xl mt-5 hover:bg-yellow-400' type="submit" value='Login' id="" />
