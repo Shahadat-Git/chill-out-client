@@ -10,13 +10,12 @@ const ChefCard = ({ chef }) => {
     const chefUrlName = chef_name.split(" ").join("-").toLowerCase() + -+chef_id;
     // console.log(chefUrlName)
     return (
-  
+        <LazyLoad
+            offset={300}
+            threshold={0.95}
+        >
             <div className="flex flex-col lg:flex-row  lg:items-center rounded-xl shadow-lg bg-base-200">
-                <LazyLoad
-                    offset={300}
-                    threshold={0.95}>
-                    <img className=' lg:rounded-s-xl rounded-t-xl lg:rounded-t-none h-80 lg:w-2/5 w-full object-center' src={chef_picture} alt="" />
-                </LazyLoad>
+                <img className=' lg:rounded-s-xl rounded-t-xl lg:rounded-t-none h-80 lg:w-2/5 w-full object-center' src={chef_picture} alt="" />
                 <div className="p-4">
                     <h5 className='mb-3 text-xl font-semibold'>{chef_name}</h5>
                     <div className='flex items-center gap-1 mb-3'>
@@ -38,6 +37,7 @@ const ChefCard = ({ chef }) => {
                     </div>
                 </div>
             </div>
+        </LazyLoad>
     );
 };
 

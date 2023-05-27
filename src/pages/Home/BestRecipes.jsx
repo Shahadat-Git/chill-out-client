@@ -5,7 +5,7 @@ import LazyLoad from 'react-lazy-load';
 const BestRecipes = ({ recipe }) => {
     const { recipe_id, recipe_picture, recipe_name, ingredients, cooking_method, rating } = recipe;
     return (
-        <div className='bg-base-200 p-5 rounded-lg shadow-xl'>
+        <div className='bg-base-200 px-5 pt-5 pb-2 rounded-lg shadow-xl'>
             <div>
                 <LazyLoad
                     offset={300}
