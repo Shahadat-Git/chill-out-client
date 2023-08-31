@@ -14,7 +14,7 @@ const ChefCard = ({ chef }) => {
             offset={300}
             threshold={0.95}
         >
-            <div className="flex flex-col lg:flex-row  lg:items-center rounded-xl shadow-lg bg-base-200">
+            <div className="flex flex-col lg:flex-row  lg:items-center rounded-xl shadow-lg bg-base-200 w-full">
                 <img className=' lg:rounded-s-xl rounded-t-xl lg:rounded-t-none h-80 lg:w-2/5 w-full object-center' src={chef_picture} alt="" />
                 <div className="p-4">
                     <h5 className='mb-3 text-xl font-semibold'>{chef_name}</h5>
